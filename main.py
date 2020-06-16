@@ -1,20 +1,27 @@
 import multiprocessing
 import copy
+import json
+
 from datetime import timedelta
 from time import time
 from playsound import playsound
 from Scripts.BotFunctions import runSemlar
 from Scripts.rivenmarket import Rivenmarket
-from data.weapons.weapons import weaponsList
+from itertools import chain
 
 headless = False
-max_processes = 8
-weapons = weaponsList()
+max_processes = 1
+
+
+def load_weapons():
+    weapons = json.load(open('data/weapons/weapons.json', 'r'))
+    return list(chain.from_iterable([weapons[weapon] for weapon in weapons]))
 
 
 def main():
     start_time = time()
     pool = multiprocessing.Pool(max_processes)
+    weapons = load_weapons()
 
     rmkt = Rivenmarket(headless)
     argslist = []
@@ -35,4 +42,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    print(load_weapons())

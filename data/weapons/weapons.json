@@ -1,0 +1,26 @@
+{
+  "weapons_primary": [
+    "Kuva Bramma",
+    "Kohm",
+    "Acceltra",
+    "Rubico",
+    "Ignis",
+    "Fulmin",
+    "Corinth",
+    "Kuva Chakkhurr",
+    "Vectis",
+    "Kohm"
+  ],
+  "weapons_secondary": [
+    "Nukor",
+    "Catchmoon"
+  ],
+
+  "weapons_melee": [
+    "Kronen",
+    "Gram",
+    "Sepfahn",
+    "Dokrahm",
+    "Pennant"
+  ]
+}
