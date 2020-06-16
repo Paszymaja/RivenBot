@@ -3,13 +3,14 @@ import copy
 from datetime import timedelta
 from time import time
 from playsound import playsound
-from BotFunctions import runSemlar
-from rivenmarket import Rivenmarket
-from weapons import weaponsList
+from Scripts.BotFunctions import runSemlar
+from Scripts.rivenmarket import Rivenmarket
+from data.weapons.weapons import weaponsList
 
 headless = False
 max_processes = 8
 weapons = weaponsList()
+
 
 def main():
     start_time = time()

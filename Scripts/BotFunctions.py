@@ -1,4 +1,4 @@
-from semlar import Semlar
+from Scripts.semlar import Semlar
 
 
 def runSemlar(argslist):
