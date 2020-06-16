@@ -1,13 +1,13 @@
-import multiprocessing
 import copy
 import json
-
-from datetime import timedelta
-from time import time
-from playsound import playsound
-from Scripts.BotFunctions import runSemlar
-from Scripts.rivenmarket import Rivenmarket
+import multiprocessing
 from itertools import chain
+
+from playsound import playsound
+
+from Scripts.BotFunctions import runSemlar
+from Scripts.decorators import logtime
+from Scripts.rivenmarket import Rivenmarket
 
 headless = False
 max_processes = 1
@@ -18,8 +18,8 @@ def load_weapons():
     return list(chain.from_iterable([weapons[weapon] for weapon in weapons]))
 
 
+@logtime
 def main():
-    start_time = time()
     pool = multiprocessing.Pool(max_processes)
     weapons = load_weapons()
 
@@ -36,10 +36,8 @@ def main():
     pool.map(runSemlar, [*argslist])
 
     print("---DONE---")
-    playsound("sound.wav")
-    time_elapsed = time() - start_time
-    print("Time Elapsed " + str(timedelta(seconds=time_elapsed)).split(".")[0])
+    playsound('data/sound/sound.wav')
 
 
 if __name__ == '__main__':
-    print(load_weapons())
+    main()
